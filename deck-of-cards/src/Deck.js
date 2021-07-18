@@ -17,7 +17,7 @@ const Deck = () => {
             axios.get(`${BASE_URL}/new/shuffle/`)
             .then(res => setDeck(res.data)).catch(err => alert(err));
         };
-        await fetchDeck();
+        fetchDeck();
     }, [setDeck])
     
     useEffect(() => {
@@ -43,7 +43,7 @@ const Deck = () => {
         
         if (autoDraw && !timerRef.current) {
             timerRef.current = setInterval(async () => {
-                await getCard();
+                await fetchCard();
             }, 1000);
         }
 
